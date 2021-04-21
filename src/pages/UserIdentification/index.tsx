@@ -80,7 +80,6 @@ export function UserIdentification() {
               <View style={styles.footer}>
                 <Button
                   disabled={!name}
-                  activeOpacity={.7}
                   onPress={handleSubmit}
                 >
                   <Text style={styles.buttonText}>
