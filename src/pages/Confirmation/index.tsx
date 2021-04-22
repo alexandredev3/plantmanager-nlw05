@@ -1,35 +1,57 @@
 import React from 'react';
 import { SafeAreaView, View, Text } from 'react-native';
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation, useRoute } from '@react-navigation/core';
 
 import { Button } from '../../components/Button';
 
 import { styles } from './styles';
 
+interface RouteParams {
+  title: string;
+  subtitle: string;
+  buttonTitle: string;
+  icon: 'smile' | 'hug';
+  nextScreen: string;
+}
+
+const emojis = {
+  smile: '😄',
+  hug: '🤗',
+}
+
 export function Confirmation() {
   const navigator = useNavigation();
+  const route = useRoute();
+
+  const {
+    title,
+    buttonTitle,
+    icon,
+    nextScreen,
+    subtitle
+  } = route.params as RouteParams;
 
   function handleMoveOn() {
-    navigator.navigate('PlantSelect');
+    navigator.navigate(nextScreen);
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.emoji}>
-          😀
+          {emojis[icon]}
         </Text>
         <Text style={styles.title}>
-          Prontinho
+          {title}
         </Text>
         <Text style={styles.subtitle}>
-          Agora vamos começar a cuidar das suas plantinhas com muito cuidado.
+          {subtitle}
         </Text>
 
         <View style={styles.footer}>
           <Button onPress={handleMoveOn}>
             <Text style={styles.buttonText}>
-              Começar
+              {buttonTitle}
             </Text>
           </Button>
         </View>
