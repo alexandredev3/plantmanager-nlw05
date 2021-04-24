@@ -46,6 +46,10 @@ export function UserIdentification() {
       return Alert.alert("Me diz ai como se chama!");
 
     try {
+      await handleAuth({
+        name
+      });
+
       navigator.navigate('Confirmation', {
         title: 'Prontinho',
         buttonTitle: 'Começar',
