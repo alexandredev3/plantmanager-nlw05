@@ -11,14 +11,16 @@ import {
   Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Button } from '../../components/Button';
-import colors from '../../styles/colors';
 
+import { useAuth } from '../../hooks/useAuth';
+
+import colors from '../../styles/colors';
 import { styles } from './styles';
 
 export function UserIdentification() {
+  const { handleAuth } = useAuth();
   const navigator = useNavigation();
 
   const [name, setName] = useState('');
@@ -44,8 +46,6 @@ export function UserIdentification() {
       return Alert.alert("Me diz ai como se chama!");
 
     try {
-      await AsyncStorage.setItem('@plantmanager:user', name);
-
       navigator.navigate('Confirmation', {
         title: 'Prontinho',
         buttonTitle: 'Começar',

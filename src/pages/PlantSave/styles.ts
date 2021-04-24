@@ -6,6 +6,9 @@ import fonts from '../../styles/fonts';
 
 export const styles = StyleSheet.create({
   container: {
+    flexGrow: 1,
+  },
+  wrapper: {
     flex: 1,
     justifyContent: 'space-between',
     backgroundColor: colors.shape,

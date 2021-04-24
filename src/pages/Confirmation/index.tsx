@@ -20,20 +20,16 @@ const emojis = {
 }
 
 export function Confirmation() {
-  const navigator = useNavigation();
   const route = useRoute();
+  const navigator = useNavigation();
 
   const {
     title,
     buttonTitle,
     icon,
-    nextScreen,
-    subtitle
+    subtitle,
+    nextScreen
   } = route.params as RouteParams;
-
-  function handleMoveOn() {
-    navigator.navigate(nextScreen);
-  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -49,7 +45,7 @@ export function Confirmation() {
         </Text>
 
         <View style={styles.footer}>
-          <Button onPress={handleMoveOn}>
+          <Button onPress={() => navigator.navigate(nextScreen)}>
             <Text style={styles.buttonText}>
               {buttonTitle}
             </Text>

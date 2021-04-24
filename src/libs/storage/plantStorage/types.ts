@@ -16,5 +16,9 @@ export interface Plant {
 export interface StoragePlantData{
   [id: string]: {
     data: Plant;
+    notificationId: string;
   };
 }
+
+export type GetPlantsStorage = () => Promise<StoragePlantData>;
+export type SavePlantsStorage = (plants: object) => Promise<void>;
