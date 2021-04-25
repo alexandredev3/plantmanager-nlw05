@@ -96,4 +96,4 @@ Feito com ❤️ por Alexandre Costa :wave::wave: Entre em contato!🚀
 ## :memo: Licença
 
 Copyright © 2020 [Alexandre Costa](https://github.com/alexandredev3).<br />
-This project is [MIT](./LICENSE.txt) licensed.
+This project is [MIT](./.github/LICENSE.txt) licensed.
